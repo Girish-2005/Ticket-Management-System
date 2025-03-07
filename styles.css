@@ -1,97 +1,154 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f1f1f1;
-    padding: 20px;
-    background-image: url('tkt.jpg');
-    background-size: cover;
-    background-position: center;
-    height: 100vh;
+    background-color: #f0f2f5;
 }
 
 .background-img {
-    background-color: rgba(255, 255, 255, 0.8);
-    padding: 20px;
-    border-radius: 10px;
-    max-width: 400px;
-    margin: 50px auto;
-}
-
-h2 {
-    text-align: center;
-    color: #333;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+        url('https://images.unsplash.com/photo-1530521954074-e64f6810b32d?ixlib=rb-4.0.3');
+    background-size: cover;
+    background-position: center;
 }
 
 .ticket-section {
-    max-width: 400px;
-    margin: 0 auto;
+    background: rgba(255, 255, 255, 0.95);
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    width: 90%;
+    max-width: 500px;
 }
 
-input[type="text"], input[type="date"], input[type="submit"] {
-    width: calc(100% - 20px);
-    padding: 10px;
-    margin: 10px 0;
-    border: 1px solid #ccc;
+#ticket-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+h2 {
+    color: #333;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+input[type="text"],
+input[type="date"] {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
     border-radius: 5px;
+    font-size: 16px;
+    transition: border-color 0.3s ease;
 }
 
-input[type="submit"] {
+input[type="text"]:focus,
+input[type="date"]:focus {
+    outline: none;
+    border-color: #4CAF50;
+}
+
+input[type="submit"],
+#view-history-btn {
     background-color: #4CAF50;
     color: white;
+    padding: 12px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    transition: background-color 0.3s;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
 }
 
-input[type="submit"]:hover {
+input[type="submit"]:hover,
+#view-history-btn:hover {
     background-color: #45a049;
 }
 
-#ticket-history {
-    margin-top: 20px;
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    display: none;
+#view-history-btn {
+    width: 100%;
+    margin-top: 15px;
+    background-color: #2196F3;
 }
-#view-history-btn{
-    background-color:rgb(24, 24, 92);
-    color: white;
-    cursor: pointer;
-    transition: background-color 0.3s;
-    width: calc(100% - 20px);
-    padding: 10px;
-    margin: 10px 0;
-    border: 1px solid #ccc;
-    border-radius: 5px;
 
+#view-history-btn:hover {
+    background-color: #1976D2;
+}
+
+#ticket-history {
+    margin: 2rem auto;
+    padding: 20px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    width: 90%;
+    max-width: 1200px;
+}
+
+#ticket-history h3 {
+    color: #333;
+    margin-bottom: 20px;
+    text-align: center;
 }
 
 #history-table {
     width: 100%;
     border-collapse: collapse;
+    margin-top: 20px;
 }
 
-#history-table th, #history-table td {
-    padding: 8px;
+#history-table th,
+#history-table td {
+    padding: 12px;
+    text-align: left;
     border-bottom: 1px solid #ddd;
 }
 
 #history-table th {
-    background-color: #f2f2f2;
-    text-align: left;
+    background-color: #f5f5f5;
+    font-weight: bold;
+    color: #333;
 }
 
-#history-table td {
-    text-align: center;
+#history-table tr:hover {
+    background-color: #f9f9f9;
 }
 
 .delete-btn {
-    background-color: #dc3545;
+    background-color: #ff4444;
     color: white;
     border: none;
-    border-radius: 5px;
-    padding: 5px 10px;
+    padding: 8px 12px;
+    border-radius: 4px;
     cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.delete-btn:hover {
+    background-color: #cc0000;
+}
+
+@media (max-width: 768px) {
+    .ticket-section {
+        width: 95%;
+        padding: 1.5rem;
+    }
+
+    #ticket-history {
+        width: 95%;
+        overflow-x: auto;
+    }
+
+    #history-table {
+        font-size: 14px;
+    }
 }
